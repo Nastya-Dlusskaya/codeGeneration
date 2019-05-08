@@ -1,5 +1,8 @@
 package by.bntu.fitr.service.service;
 
+import by.bntu.fitr.generator.CodeGenerator;
+import by.bntu.fitr.generator.EntityCodeGenerator;
+import by.bntu.fitr.generator.RepositoryCodeGenerator;
 import by.bntu.fitr.repository.entity.Field;
 import by.bntu.fitr.repository.entity.Table;
 import by.bntu.fitr.repository.repository.FieldSqlRepository;
@@ -29,6 +32,12 @@ public class JDBCTableService implements TableService {
     @Autowired
     private FieldService fieldService;
 
+    @Autowired
+    private EntityCodeGenerator entityCodeGenerator;
+
+    @Autowired
+    private RepositoryCodeGenerator repositoryCodeGenerator;
+
     public List<TableDTO> getTablesByDatabase(String name){
         SqlSpecification allTablesByDatabaseSpecification = new AllTablesByDatabaseSpecification();
         List<Table> tables = tableRepository.getMetaData(allTablesByDatabaseSpecification, name);
@@ -39,6 +48,6 @@ public class JDBCTableService implements TableService {
     public boolean generateCode(String databaseName, String tableName) {
         List<FieldDTO> fields = fieldService.getFieldsByDatabaseNameTableName(databaseName, tableName);
         TableDTO tableDTO = new TableDTO(tableName, fields);
-        return false;
+        return entityCodeGenerator.generateCode(tableDTO) && repositoryCodeGenerator.generateCode(tableDTO);
     }
 }

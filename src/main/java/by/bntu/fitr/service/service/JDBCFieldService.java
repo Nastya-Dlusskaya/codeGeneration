@@ -2,8 +2,6 @@ package by.bntu.fitr.service.service;
 
 import by.bntu.fitr.repository.entity.Field;
 import by.bntu.fitr.repository.repository.FieldSqlRepository;
-import by.bntu.fitr.repository.specification.Specification;
-import by.bntu.fitr.repository.specification.SqlSpecification;
 import by.bntu.fitr.repository.specification.SqlSpecificationForTwoEntities;
 import by.bntu.fitr.repository.specification.fieldspecification.AllFieldByDatabaseAndTable;
 import by.bntu.fitr.service.converter.FieldConverter;

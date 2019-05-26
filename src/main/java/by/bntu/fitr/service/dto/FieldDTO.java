@@ -1,5 +1,7 @@
 package by.bntu.fitr.service.dto;
 
+import org.springframework.util.StringUtils;
+
 import java.util.Objects;
 
 public class FieldDTO {
@@ -29,6 +31,10 @@ public class FieldDTO {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public String getClassName() {
+        return StringUtils.capitalize(name);
     }
 
     @Override

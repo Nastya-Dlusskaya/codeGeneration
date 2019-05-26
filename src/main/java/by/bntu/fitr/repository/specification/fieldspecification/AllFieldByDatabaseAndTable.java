@@ -1,6 +1,5 @@
 package by.bntu.fitr.repository.specification.fieldspecification;
 
-import by.bntu.fitr.repository.specification.SqlSpecification;
 import by.bntu.fitr.repository.specification.SqlSpecificationForTwoEntities;
 import by.bntu.fitr.repository.specification.SqlSpecificationResult;
 

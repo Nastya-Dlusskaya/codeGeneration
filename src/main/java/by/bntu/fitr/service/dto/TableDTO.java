@@ -1,5 +1,7 @@
 package by.bntu.fitr.service.dto;
 
+import org.springframework.util.StringUtils;
+
 import java.util.List;
 import java.util.Objects;
 
@@ -30,6 +32,10 @@ public class TableDTO {
 
     public void setFields(List<FieldDTO> fields) {
         this.fields = fields;
+    }
+
+    public String getClassName() {
+        return StringUtils.capitalize(name);
     }
 
     @Override
